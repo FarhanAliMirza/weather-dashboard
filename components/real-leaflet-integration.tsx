@@ -1,9 +1,5 @@
 "use client"
 
-// This file shows how to implement real Leaflet integration
-// Uncomment and modify when you want to use actual Leaflet
-
-/*
 import { useEffect, useRef, useState, useCallback } from 'react'
 import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
@@ -236,23 +232,4 @@ export function RealLeafletIntegration({
     </div>
   )
 }
-*/
 
-// Placeholder component for documentation
-export function RealLeafletIntegration() {
-  return (
-    <div className="flex items-center justify-center h-full bg-gray-50">
-      <div className="text-center p-8">
-        <h3 className="text-lg font-semibold mb-2">Real Leaflet Integration</h3>
-        <p className="text-gray-600 mb-4">
-          Uncomment the code above to enable real OpenStreetMap integration with Leaflet
-        </p>
-        <div className="bg-gray-100 p-4 rounded-lg text-left">
-          <code className="text-sm">
-            npm install leaflet @types/leaflet
-          </code>
-        </div>
-      </div>
-    </div>
-  )
-}
