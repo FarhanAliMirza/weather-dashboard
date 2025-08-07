@@ -12,6 +12,31 @@ L.Icon.Default.mergeOptions({
   shadowUrl: '/leaflet/marker-shadow.png',
 })
 
+// Define DataPoint type if not imported from elsewhere
+type DataPoint = {
+  lat: number
+  lng: number
+  value: number
+  category: string
+  timestamp: number
+}
+
+// Define Dataset type if not imported from elsewhere
+type Dataset = {
+  id: string
+  name: string
+  color: string
+  enabled: boolean
+}
+
+// Define Polygon type if not imported from elsewhere
+type Polygon = {
+  id: string
+  coordinates: [number, number][]
+  name: string
+  color: string
+}
+
 interface RealLeafletProps {
   data: DataPoint[]
   datasets: Dataset[]
