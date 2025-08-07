@@ -416,7 +416,7 @@ export function Timeline({ timeRange, onTimeRangeChange, data }: TimelineProps) 
           <Button
             size="sm"
             variant="outline"
-            onClick={() => onTimeRangeChange(timeExtent)}
+            onClick={() => onTimeRangeChange([timeExtent[0], timeExtent[1]])}
           >
             All time
           </Button>
