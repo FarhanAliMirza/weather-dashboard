@@ -325,7 +325,7 @@ export function LeafletVisualization({
       if (map.current.getContainer && map.current.getContainer()) {
         operation()
       }
-    } catch (error) {
+    } catch (error: any) {
       console.warn('Layer operation failed:', error)
       // If map is invalid, mark as not loaded
       if (error.message && error.message.includes('_leaflet_pos')) {
