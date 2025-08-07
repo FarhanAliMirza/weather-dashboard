@@ -1,6 +1,6 @@
 "use client"
 
-import { Palette, OctagonIcon as Polygon, ToggleLeft, ToggleRight, Trash2, Map } from 'lucide-react'
+import { Palette, OctagonIcon, ToggleLeft, ToggleRight, Trash2, Map } from 'lucide-react'
 import {
   Sidebar,
   SidebarContent,
@@ -52,7 +52,7 @@ export function DashboardSidebar({
               onClick={() => onToggleDrawingMode(!isDrawingMode)}
               className="w-full justify-start"
             >
-              <Polygon className="h-4 w-4 mr-2" />
+              <OctagonIcon className="h-4 w-4 mr-2" />
               {isDrawingMode ? "Exit Drawing" : "Draw Polygon"}
             </Button>
           </SidebarGroupContent>
