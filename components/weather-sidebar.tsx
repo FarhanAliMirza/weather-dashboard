@@ -83,12 +83,17 @@ export function WeatherSidebar({
     onUpdateColorRules(updatedRules)
   }, [currentRule, colorRules, onUpdateColorRules])
 
-  const updateColorCondition = useCallback((index: number, field: keyof typeof currentRule.conditions[0], value: any) => {
-    if (!currentRule) return
+  const updateColorCondition = useCallback(
+    (
+      index: number,
+      field: keyof (typeof currentRule extends { conditions: Array<infer T> } ? T : never),
+      value: any
+    ) => {
+      if (!currentRule) return
 
-    const updatedConditions = currentRule.conditions.map((condition, i) => 
-      i === index ? { ...condition, [field]: value } : condition
-    )
+      const updatedConditions = currentRule.conditions.map((condition, i) =>
+        i === index ? { ...condition, [field]: value } : condition
+      )
 
     const updatedRule = {
       ...currentRule,
