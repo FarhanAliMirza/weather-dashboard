@@ -87,11 +87,23 @@ export function MapVisualization({
     if (currentPolygon.length < 3) return
 
     const colors = ["#ff6b6b", "#4ecdc4", "#45b7d1", "#96ceb4", "#feca57"]
+    // Helper to convert SVG x/y back to lat/lng (inverse of latLngToSVG)
+    const svgToLatLng = (x: number, y: number) => {
+      const centerLat = 40.7128
+      const centerLng = -74.0060
+      const scale = 5000
+
+      const lng = (x - 400) / scale + centerLng
+      const lat = centerLat - (y - 300) / scale
+      return [lat, lng] as [number, number]
+    }
+
     const polygon: Polygon = {
       id: `polygon-${Date.now()}`,
       points: currentPolygon,
       name: polygonName || `Polygon ${polygons.length + 1}`,
-      color: colors[polygons.length % colors.length]
+      color: colors[polygons.length % colors.length],
+      coordinates: currentPolygon.map(p => svgToLatLng(p.x, p.y))
     }
 
     onAddPolygon(polygon)
