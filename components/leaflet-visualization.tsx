@@ -357,7 +357,7 @@ export function LeafletVisualization({
         const { lat, lng } = e.latlng
         
         setCurrentPolygon(prev => {
-          const newPolygon = [...prev, [lat, lng]]
+          const newPolygon: [number, number][] = [...prev, [lat, lng]]
           
           // Remove previous polyline safely
           safeLayerOperation(() => {
@@ -370,10 +370,16 @@ export function LeafletVisualization({
           // Add new polyline if we have more than one point
           if (newPolygon.length > 1) {
             safeLayerOperation(() => {
-              const validCoords = newPolygon.filter(([lat, lng]) => 
-                typeof lat === 'number' && typeof lng === 'number' && 
-                !isNaN(lat) && !isNaN(lng) &&
-                lat >= -90 && lat <= 90 && lng >= -180 && lng <= 180
+              const validCoords: [number, number][] = newPolygon.filter(
+                ([lat, lng]) =>
+                  typeof lat === 'number' &&
+                  typeof lng === 'number' &&
+                  !isNaN(lat) &&
+                  !isNaN(lng) &&
+                  lat >= -90 &&
+                  lat <= 90 &&
+                  lng >= -180 &&
+                  lng <= 180
               )
               
               if (validCoords.length > 1 && map.current) {
